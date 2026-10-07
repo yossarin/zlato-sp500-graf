@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zlato vs S&amp;P 500</title>
+<meta name="description" content="Realni povrat zlata i S&amp;P 500 s reinvestiranim dividendama od 1971. do danas, nakon inflacije.">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111317" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Zlato vs S&amp;P 500">
+<meta property="og:description" content="Koliko je vrijedio 1 $ uložen u zlato ili S&amp;P 500, nakon inflacije, od 1971. do danas.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314171c'/%3E%3Cpath d='M5 24 L12 17 L17 20 L27 8' fill='none' stroke='%233987e5' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5 13 L12 22 L18 18 L27 23' fill='none' stroke='%23eb6834' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Realni povrat, nakon inflacije · 1971 – rujan 2026</div>
+    <h1>Zlato vs S&amp;P 500</h1>
+    <p class="lede">Koliko je vrijedio 1 dolar uložen u zlato ili u S&amp;P 500 s reinvestiranim dividendama, u kupovnoj moći današnjeg dolara. Odaberi razdoblje. <b>1980–2010</b> je razdoblje iz rasprave.</p>
+  </header>
+
+  <div class="controls" role="group" aria-label="Razdoblje">
+    <button class="chip" data-a="1971-01" data-b="2026-09">1971 – danas</button>
+    <button class="chip" data-a="1980-01" data-b="2010-12">1980 – 2010</button>
+    <button class="chip" data-a="1980-01" data-b="2026-09">1980 – danas</button>
+    <button class="chip" data-a="2000-01" data-b="2026-09">2000 – danas</button>
+    <button class="chip" data-a="2011-08" data-b="2026-09">2011 – danas</button>
+    <div class="custom"><label for="ya">od</label><select id="ya"></select><label for="yb">do</label><select id="yb"></select></div>
+  </div>
+
+  <section class="panel" id="p1">
+    <h2>Rast 1 $ (realno, log skala)</h2>
+    <p class="sub" id="sub1"></p>
+    <div class="legend"><span><i style="background:var(--sp)"></i>S&amp;P 500 ukupni povrat</span><span><i style="background:var(--gold)"></i>Zlato</span></div>
+    <svg id="c1" role="img" aria-label="Realni rast jednog dolara, zlato i S&P 500"></svg>
+    <div class="tip" id="t1" hidden></div>
+  </section>
+
+  <section class="panel" id="p2">
+    <h2>Pad od prethodnog vrha (realno)</h2>
+    <p class="sub">Koliko si ispod najviše realne vrijednosti koju si vidio unutar odabranog razdoblja.</p>
+    <svg id="c2" role="img" aria-label="Pad od prethodnog realnog vrha"></svg>
+    <div class="tip" id="t2" hidden></div>
+  </section>
+
+  <div class="stats" id="stats"></div>
+
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <h2 style="font:600 15px var(--f-body);margin:0">Ključna razdoblja</h2>
+    <p style="margin:0;font-size:13px;color:var(--muted)">Realni prinos godišnje, ispod koliko je postao 1 $. Pobjednik razdoblja je podebljan.</p>
+    <div class="tablewrap"><table id="tbl"><thead><tr><th>Razdoblje</th><th>S&amp;P 500</th><th>Zlato</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="take">
+    <h2 style="font:600 15px var(--f-body);margin:0">Što graf kaže</h2>
+    <p><b>Od 1980. do 2010.</b> zlato je realno izgubilo oko četvrtinu vrijednosti, a S&amp;P 500 je narastao oko 9 puta. Mjesečni prosjek iz siječnja 1980. zlato je realno prestiglo tek početkom 2025.</p>
+    <p><b>Od 2000. naovamo</b> slika je obrnuta. Zlato je pobijedilo, jer je 2000. bio vrh balona dionica, a dno za zlato.</p>
+    <p><b>Najgori pad</b> zlata je realno oko −83 %, a S&amp;P 500 oko −52 %. Zlato nije "sigurna" imovina u smislu volatilnosti. Ono je osiguranje koje radi u određenim režimima.</p>
+    <p><b>Početna točka odlučuje sve.</b> Tko kupi na vrhu manije, čeka desetljećima, bilo da je riječ o zlatu 1980. ili dionicama 2000.</p>
+  </section>
+
+  <footer class="notes">
+    <p><b>Izvori.</b> S&amp;P 500 realni ukupni povrat iz podataka Roberta Shillera (Yale, <a href="http://www.econ.yale.edu/~shiller/data.htm">ie_data</a>) do kolovoza 2023. Nakon toga ulančano s mjesečnim prosjekom S&amp;P 500 s FRED-a, uz pretpostavljeni prinos dividende od 1,4 % godišnje, i deflacionirano CPI-jem s FRED-a.</p>
+    <p>Zlato je mjesečna cijena iz skupa <a href="https://github.com/datasets/gold-prices">datasets/gold-prices</a>, deflacionirana istim CPI-jem i izražena u dolarima iz rujna 2026. CPI za listopad 2025. nije objavljen, pa je interpoliran. CPI za rujan 2026. je procjena.</p>
+    <p>Bez poreza, naknada i troškova čuvanja. Mjesečni prosjeci zaglađuju dnevne vrhove, pa je npr. vrh zlata iz 1980. ovdje oko 675 $, a ne dnevnih 850 $. Ovo nije financijski savjet.</p>
+  </footer>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
